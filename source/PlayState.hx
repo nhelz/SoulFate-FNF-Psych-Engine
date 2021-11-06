@@ -147,6 +147,7 @@ class PlayState extends MusicBeatState
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
 	public var combo:Int = 0;
+	public var attackNotesLeft = 5;
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
@@ -1493,6 +1494,8 @@ class PlayState extends MusicBeatState
 		var noteData:Array<SwagSection>;
 
 		// NEW SHIT
+		attackNotesLeft = PlayState.SONG.attackNotes - PlayState.SONG.attackNotesNeeded;
+
 		noteData = songData.notes;
 
 		var playerCounter:Int = 0;
@@ -3349,6 +3352,14 @@ class PlayState extends MusicBeatState
 			case 3:
 				animToPlay = 'singRIGHTmiss';
 		}
+		
+		if(daNote.noteType == 'Attack') {
+			attackNotesLeft -= 1;
+			if(attackNotesLeft <= 0) {
+				health = 0;
+				doDeathCheck();
+			}
+		}
 
 		if(daNote.noteType == 'GF Sing') {
 			gf.playAnim(animToPlay, true);
@@ -3442,6 +3453,7 @@ class PlayState extends MusicBeatState
 				combo += 1;
 				if(combo > 9999) combo = 9999;
 			}
+
 			health += note.hitHealth;
 
 			if(!note.noAnimation) {
@@ -3459,6 +3471,9 @@ class PlayState extends MusicBeatState
 						animToPlay = 'singUP';
 					case 3:
 						animToPlay = 'singRIGHT';
+				}
+				if(note.noteType == 'Attack') {
+					animToPlay = 'singATTACK';
 				}
 
 				if(note.noteType == 'GF Sing') {
