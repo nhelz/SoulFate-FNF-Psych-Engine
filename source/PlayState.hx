@@ -382,7 +382,7 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'alleyway': //Week 1
-				var alleyway:BGSprite = new BGSprite('alleyway', -600, -200, 0.9, 0.9);
+				var alleyway:BGSprite = new BGSprite('alleyway', -200, -100, 0.9, 0.9);
 				add(alleyway);
 
 			case 'spooky': //Week 2
