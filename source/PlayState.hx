@@ -381,6 +381,10 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 				}
 
+			case 'alleyway': //Week 1
+				var alleyway:BGSprite = new BGSprite('alleyway', -600, -200, 0.9, 0.9);
+				add(alleyway);
+
 			case 'spooky': //Week 2
 				if(!ClientPrefs.lowQuality) {
 					halloweenBG = new BGSprite('halloween_bg', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
