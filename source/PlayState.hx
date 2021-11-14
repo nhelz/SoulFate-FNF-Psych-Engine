@@ -148,6 +148,7 @@ class PlayState extends MusicBeatState
 	public var health:Float = 1;
 	public var combo:Int = 0;
 	public var attackNotesLeft = 5;
+	public var maxhealth:Float = 2;
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
@@ -2027,8 +2028,8 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
-		if (health > 2)
-			health = 2;
+		if (health > maxhealth)
+			health = maxhealth;
 
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
@@ -3364,6 +3365,10 @@ class PlayState extends MusicBeatState
 				doDeathCheck();
 			}
 		}
+		if(daNote.noteType == 'Block') {
+			maxhealth -= 0.2;
+			doDeathCheck();
+		}
 
 		if(daNote.noteType == 'GF Sing') {
 			gf.playAnim(animToPlay, true);
@@ -3478,6 +3483,9 @@ class PlayState extends MusicBeatState
 				}
 				if(note.noteType == 'Attack') {
 					animToPlay = 'singATTACK';
+				}
+				if(note.noteType == 'Block') {
+					animToPlay = 'singBLOCK';
 				}
 
 				if(note.noteType == 'GF Sing') {

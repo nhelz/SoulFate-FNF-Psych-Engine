@@ -104,6 +104,14 @@ class Note extends FlxSprite
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
+				case 'Block Note':
+					noignoreNote = mustPress;
+					reloadNote('BLOCK');
+					noteSplashTexture = 'BLOCKnoteSplashes';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+				
 				case 'No Animation':
 					noAnimation = true;
 			}
