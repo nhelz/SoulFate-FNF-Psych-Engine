@@ -231,7 +231,9 @@ class ChartingState extends MusicBeatState
 				player3: 'gf',
 				speed: 1,
 				stage: 'stage',
-				validScore: false
+				validScore: false,
+				attackNotes: 0,
+				attackNotesNeeded: 0
 			};
 		}
 		
@@ -2124,7 +2126,9 @@ class ChartingState extends MusicBeatState
 			player2: _song.player2,
 			player3: _song.player3,
 			stage: _song.stage,
-			validScore: false
+			validScore: false,
+			attackNotes: 0,
+			attackNotesNeeded: 0
 		};
 		var json = {
 			"song": eventsSong

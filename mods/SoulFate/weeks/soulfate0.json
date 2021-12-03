@@ -1,0 +1,39 @@
+{
+	"storyName": "soulfate0",
+	"hideFreeplay": false,
+	"weekBackground": "shade",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"reminiscing",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"pico",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekName": "Custom Week"
+}
